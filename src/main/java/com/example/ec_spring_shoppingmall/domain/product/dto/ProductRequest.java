@@ -27,13 +27,11 @@ public class ProductRequest {
     @NotNull
     private final String info;
     @NotNull
-    private final String partNumber;
-    @NotNull
     private final Integer price;
 
     private final List<Size> sizes;
 
-    private final Image thumbnailId;
+    private final String thumbnailUrl;
 
     public static ProductRequest from(Product product) {
         if(product == null) return null;
@@ -43,10 +41,9 @@ public class ProductRequest {
                 .name(product.getName())
                 .brand(product.getBrand())
                 .info(product.getInfo())
-                .partNumber(product.getPartNumber())
                 .price(product.getPrice())
                 .sizes(product.getSizes())
-                .thumbnailId(product.getThumbnailId())
+                .thumbnailUrl(product.getThumbnailUrl())
                 .build();
     }
 
@@ -55,9 +52,8 @@ public class ProductRequest {
                 .name(name)
                 .brand(brand)
                 .info(info)
-                .partNumber(partNumber)
                 .price(price)
-                .thumbnailId(thumbnailId)
+                .thumbnailUrl(thumbnailUrl)
                 .build();
     }
 

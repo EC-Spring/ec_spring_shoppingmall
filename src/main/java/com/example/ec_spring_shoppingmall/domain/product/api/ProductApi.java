@@ -3,6 +3,7 @@ package com.example.ec_spring_shoppingmall.domain.product.api;
 import com.example.ec_spring_shoppingmall.domain.product.application.ProductService;
 import com.example.ec_spring_shoppingmall.domain.product.domain.Product;
 import com.example.ec_spring_shoppingmall.domain.product.dto.ProductRequest;
+import com.example.ec_spring_shoppingmall.domain.product.dto.ProductResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,19 +23,17 @@ public class ProductApi {
     private final ProductService productService;
 
     @PostMapping("/")
-    public ResponseEntity<Void> saveProduct(@RequestBody @Valid ProductRequest product){
-        productService.save(product);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<ProductResponse> saveProduct(@RequestBody @Valid ProductRequest product){
+        return ResponseEntity.ok().body(productService.save(product));
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Void> updateProduct(@RequestBody @Valid ProductRequest product){
-        productService.update(product);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<ProductResponse> updateProduct(@RequestBody @Valid ProductRequest product){
+        return ResponseEntity.ok().body(productService.update(product));
     }
 
     @GetMapping("/between")
-    public ResponseEntity<List<Product>> getAllProductByPriceBetween(
+    public ResponseEntity<List<ProductResponse>> getAllProductByPriceBetween(
             @RequestParam("low")int low, @RequestParam("high")int high
     ) {
         return ResponseEntity.ok().body(productService.findAllByPriceBetween(low, high));
@@ -42,7 +41,7 @@ public class ProductApi {
 
 
     @DeleteMapping("/delete")
-    public ResponseEntity<Void> deleteProduct(@RequestParam("id")Long id){
+    public ResponseEntity<ProductResponse> deleteProduct(@RequestParam("id")Long id){
         productService.delete(id);
         return ResponseEntity.ok().build();
     }
