@@ -56,7 +56,6 @@ public class Product extends BaseTimeEntity {
     @Builder
     public Product(String name, String brand, Integer price,
                    String info, String thumbnailUrl) {
-
         this.name = name;
         this.brand = brand;
         this.price = price;

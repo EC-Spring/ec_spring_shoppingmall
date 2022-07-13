@@ -57,4 +57,15 @@ public class ProductRequest {
                 .build();
     }
 
+
+    public Product update(Product product) {
+        product.setName(name);
+        product.setBrand(brand);
+        product.setPrice(price);
+        product.setInfo(info);
+        product.setThumbnailUrl(thumbnailUrl);
+
+        return product;
+    }
+
 }

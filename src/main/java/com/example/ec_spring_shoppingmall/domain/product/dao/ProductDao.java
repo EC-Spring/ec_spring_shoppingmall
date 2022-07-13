@@ -48,16 +48,7 @@ public class ProductDao {
     public Product update(final ProductRequest productRequest){
         Optional<Product> product = productRepository.findById(productRequest.getId());
         product.orElseThrow(() -> new ProductNotFoundException(productRequest.getId()));
-        Product toUpdate = product.get();
-
-        toUpdate.setName(productRequest.getName());
-        toUpdate.setBrand(productRequest.getBrand());
-        toUpdate.setInfo(productRequest.getInfo());
-        toUpdate.setPrice(productRequest.getPrice());
-        toUpdate.setThumbnailUrl(productRequest.getThumbnailUrl());
-        productRepository.save(toUpdate);
-
-        return toUpdate;
+        return productRepository.save(productRequest.update(product.get()));
     }
 
     public void delete(final Long productId){
