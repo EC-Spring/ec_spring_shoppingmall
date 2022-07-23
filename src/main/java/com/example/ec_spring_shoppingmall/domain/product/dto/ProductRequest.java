@@ -1,12 +1,10 @@
 package com.example.ec_spring_shoppingmall.domain.product.dto;
 
-import com.example.ec_spring_shoppingmall.domain.image.domain.Image;
 import com.example.ec_spring_shoppingmall.domain.product.domain.Product;
 import com.example.ec_spring_shoppingmall.domain.size.domain.Size;
 import lombok.Builder;
 import lombok.Getter;
 
-import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
