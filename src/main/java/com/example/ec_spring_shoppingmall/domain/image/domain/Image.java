@@ -5,7 +5,6 @@ package com.example.ec_spring_shoppingmall.domain.image.domain;
  */
 
 import com.example.ec_spring_shoppingmall.domain.model.BaseTimeEntity;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -23,7 +22,6 @@ public class Image extends BaseTimeEntity {
     @Column(name="url")
     private String url;
 
-    @Builder
     public Image(String url) {
         this.url = url;
     }
